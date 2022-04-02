@@ -1,0 +1,47 @@
+﻿@model Task2.Model.PersonListViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+        <a asp-controller="Home" asp-action="Register" >Go to registration</a>
+    <div class="container">
+        @foreach (var p in Model.Persons)
+        {
+            <div class="item">
+                <div>
+                    <span>Name: </span>
+                    <span>@p.Name</span>
+                </div>
+                
+                <div>
+                    <span>Surname: </span>
+                    <span>@p.Surname</span>
+                </div>
+
+                <div>
+                    <span>Age: </span>
+                    <span>@p.Age</span>
+                </div>
+
+                <div>
+                    <p>Image: </p>
+                    @{ var file = "/images/" + p.ImageUrl;}
+                    <img src="@file" />
+                </div>
+
+
+            </div>
+        }
+
+    </div>
+</body>
+</html>
